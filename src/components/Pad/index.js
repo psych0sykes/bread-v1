@@ -22,8 +22,6 @@ function Pad(props) {
 
     const padStyle = {
         backgroundColor: "orangered",
-        width: "25%",
-        height: "100px"
 
     }
 
