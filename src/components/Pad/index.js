@@ -1,6 +1,12 @@
 import React from 'react';
 import './style.css';
 
+// ||===== PAD COMPONENT =====||
+//    PROPS:
+// numberOfPads
+// padSize
+// 
+
 function Pad(props) {
 
     const createArray = (number) => {
@@ -14,14 +20,22 @@ function Pad(props) {
         return newArray;
     };
 
+    const padStyle = {
+        backgroundColor: "orangered",
+        width: "25%",
+        height: "100px"
+
+    }
+
     const pads = createArray(props.numberOfPads)
 
-    const createPads = pads.map((pad) => {
-    <div key={pad} className="pad" onClick={props.padClick}>{pad}</div>
-    })
+    const createPads = pads.map((pad) => 
+    <div style={padStyle} key={pad} className="pad" onClick={props.padClick}>{pad}</div>
+    )
 
     return(
         <div className="padComponent">
+            {createPads}
         </div>
     )
 };

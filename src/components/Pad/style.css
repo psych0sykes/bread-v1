@@ -1,0 +1,10 @@
+.pad {
+    margin: 10px;
+    flex: 0 1 calc(20% - 8px)
+}
+.padComponent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

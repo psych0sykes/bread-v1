@@ -1,5 +1,6 @@
 import React from "react";
 import * as Tone from "tone";
+import Pad from "../components/Pad";
 
 //attach a click listener to a play button
 const enableAudio = async () => {
@@ -17,7 +18,7 @@ function Main (props) {
     return (
         <div>
         <div onClick={start} style={{backgroundColor: "black",width: "300px",height: "300px"}}></div>
-        <div onClick={enableAudio} style={{backgroundColor: "red",width: "50px",height: "50px"}}></div>
+        <Pad numberOfPads={16}/>
         </div>
     )
 }
