@@ -1,11 +1,14 @@
 import React from 'react';
+import * as Tone from 'tone';
 import './style.css';
 
 // ||===== PAD COMPONENT =====||
 //    PROPS:
 // numberOfPads
-// padSize
 // 
+// 
+
+new Tone.Synth
 
 function Pad(props) {
 

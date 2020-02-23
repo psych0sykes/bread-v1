@@ -17,8 +17,7 @@ const start = () => synth.triggerAttackRelease("C4", "8n");
 function Main (props) {
     return (
         <div>
-        <div onClick={start} style={{backgroundColor: "black",width: "300px",height: "300px"}}></div>
-        <Pad numberOfPads={16}/>
+            <Pad numberOfPads={16}/>
         </div>
     )
 }
