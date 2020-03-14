@@ -8,7 +8,7 @@ import './style.css';
 // 
 // 
 
-new Tone.Synth
+// new Tone.Synth
 
 function Pad(props) {
 
@@ -28,10 +28,10 @@ function Pad(props) {
 
     }
 
-    const pads = createArray(props.numberOfPads)
+    const pads = props.notes
 
     const createPads = pads.map((pad) => 
-    <div style={padStyle} key={pad} className="pad" onClick={props.padClick}>{pad}</div>
+    <div style={padStyle} key={pad} className="pad" onClick={() => props.padClick(pad)}>{pad}</div>
     )
 
     return(
