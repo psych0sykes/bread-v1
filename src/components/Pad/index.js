@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import * as Tone from 'tone';
 import './style.css';
 
@@ -11,27 +11,37 @@ import './style.css';
 // new Tone.Synth
 
 function Pad(props) {
-
-    const createArray = (number) => {
-
-        let newArray = [];
-
-        for(var i = 0; i < number; i++){
-            newArray.push(i)
-        };
-
-        return newArray;
-    };
-
-    const padStyle = {
-        backgroundColor: "orangered",
-
-    }
-
     const pads = props.notes
 
+    const [padStyle, setPadStyle] = useState({})
+
+    // function to assign initial state to each pad from the props.notes array    
+    useEffect(() => {
+        const initialStyle = async () => {
+            let style = {
+                backgroundColor: "orangered"
+            }
+            var initialObj = {}
+            for(var i = 0; i < pads.length; i++){
+                initialObj[pads[i]] = style;
+            }
+            console.log(initialObj);
+            setPadStyle(initialObj)
+        }
+        initialStyle();
+    }, [])
+
+    // function to randomly create an animation
+
+    // noteTrigger - hande the click
+    const noteTrigger = (pad, cb) => {
+        console.log("clicked " + pad);
+    }
+
     const createPads = pads.map((pad) => 
-    <div style={padStyle} key={pad} className="pad" onClick={() => props.padClick(pad)}>{pad}</div>
+    <div style={padStyle[pad]} key={pad} className="pad" onClick={() => {
+        noteTrigger(pad);
+        props.padClick(pad);}}>{pad}</div>
     )
 
     return(
