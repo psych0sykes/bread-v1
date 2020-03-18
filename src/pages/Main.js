@@ -1,6 +1,6 @@
 import React from "react";
 import * as Tone from "tone";
-import Pad from "../components/Pad";
+import PadGrid from "../components/PadGrid";
 
 //attach a click listener to a play button
 const enableAudio = async () => {
@@ -22,7 +22,7 @@ const start = (note) => synth.triggerAttackRelease(note, "8n");
 function Main (props) {
     return (
         <div>
-            <Pad numberOfPads={16} padClick={start} notes={notes}/>
+            <PadGrid numberOfPads={16} padClick={start} notes={notes}/>
         </div>
     )
 }
