@@ -22,13 +22,34 @@ const convertArrayToObject = (array) => {
     }, initialValue);
   };
 
+  // Return random item from array
+function randomArrayPick(array) {
+    let index = Math.floor(Math.random() * array.length)
+    console.log("index: " + index)
+    return array[index]
+}
+
+function amtColor() {
+
+    let animationColors = ["Yellow","Red","Black","Orangered"];
+    let pick = "amt" + randomArrayPick(animationColors);
+    console.log(pick)
+    return pick
+};
+
 function PadGrid(props) {
     const pads = props.notes
     const [padState, setPadState] = useState(() => convertArrayToObject(props.notes))
 
     // noteTrigger - hande the click
     const noteTrigger = (pad, cb) => {
-        setPadState({...padState, [pad]: "clickedPad"})
+        let animations = [
+            "amtSpin",
+            "amtFade",
+            "amtShake",
+            amtColor()
+        ];
+        setPadState({...padState, [pad]: randomArrayPick(animations)})
         console.log(padState)
         console.log("clicked " + pad);
     }
