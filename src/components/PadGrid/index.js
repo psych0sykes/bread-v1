@@ -31,7 +31,7 @@ function randomArrayPick(array) {
 
 function amtColor() {
 
-    let animationColors = ["Yellow","Red","Black","Orangered"];
+    let animationColors = ["Yellow","Red","Blue","Orangered"];
     let pick = "amt" + randomArrayPick(animationColors);
     console.log(pick)
     return pick
@@ -49,7 +49,10 @@ function PadGrid(props) {
             "amtShake",
             amtColor()
         ];
-        setPadState({...padState, [pad]: randomArrayPick(animations)})
+
+        let newClass = randomArrayPick(animations)
+
+        setPadState({...padState, [pad]: newClass})
         console.log(padState)
         console.log("clicked " + pad);
     }

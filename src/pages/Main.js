@@ -22,7 +22,7 @@ const start = (note) => synth.triggerAttackRelease(note, "8n");
 function Main (props) {
     return (
         <div>
-            <PadGrid numberOfPads={16} padClick={start} notes={notes} color={"blue"}/>
+            <PadGrid numberOfPads={16} padClick={start} notes={notes} color={"black"}/>
         </div>
     )
 }

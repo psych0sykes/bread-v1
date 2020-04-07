@@ -13,8 +13,8 @@
 .amtRed {
     animation: toRed 1s 1 linear;
 }
-.amtBlack {
-    animation: toBlack 1s 1 linear;
+.amtBlue {
+    animation: toBlue 1s 1 linear;
 }
 .amtOrangered {
     animation: toOrangered 1s 1 linear;
@@ -49,9 +49,9 @@
     0% {}
     100% {background-color: red;}
 }
-@keyframes toBlack {
+@keyframes toBlue {
     0% {}
-    100% {background-color: black;}
+    100% {background-color: blue;}
 }
 @keyframes toOrangered {
     0% {}
