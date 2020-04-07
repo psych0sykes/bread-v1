@@ -1,6 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 import styled, { keyframes } from 'styled-components'
 import './style.css';
+import './animations.css';
+
 
 // ||===== PAD COMPONENT =====||
 //    PROPS:
@@ -10,59 +12,31 @@ import './style.css';
 
 // new Tone.Synth
 
-const animateDefault = keyframes`
-            0% {
-                background-color: orangered;
-            }
-            100% {
-                background-color: white;
-            }
-            `;
+const convertArrayToObject = (array) => {
+    let initialValue = {};
+    return array.reduce((obj, item) => {
+      return {
+        ...obj,
+        [item]: "test",
+      };
+    }, initialValue);
+  };
 
 function PadGrid(props) {
     const pads = props.notes
-
-    const [padAnimate, setPadAnimate] = useState({
-        default: {
-            keyframes: animateDefault,
-            duration: "1s",
-            direction: "linear",
-            iteration: "3"
-        }
-    });
-    
-    const Pad = styled.div`
-        background-color: orangered;
-        animation: ${props => props.animate.keyframes} ${props => props.animate.duration} ${props => props.animate.direction} ${props => props.animate.iteration};`
-    ;
-
-    // function to randomly create an animation
-    const makeAnimation = (pad) => {
-        // @keyframes [pad] {0% {} 100%{}}
-
-        let startValue = ``;
-        let endValue = ``;
-        let attr = ``;
-
-        var animation = keyframes`
-        0% {
-            ${attr}:${startValue}
-        }
-        100% {
-            ${attr}:${endValue}
-        }
-        `;
-    }
+    const [padState, padDispatch] = useState(() => convertArrayToObject(props.notes))
 
     // noteTrigger - hande the click
     const noteTrigger = (pad, cb) => {
+        padDispatch({...padState, [pad]: "clickedPad"})
+        console.log(padState)
         console.log("clicked " + pad);
     }
 
     const createPads = pads.map((pad_id) => 
-    <Pad animate={padAnimate.default} key={pad_id} className={"pad"} onClick={() => {
+    <div key={pad_id} style={{backgroundColor: props.color}} className={"pad " + padState[pad_id]} onClick={() => {
         noteTrigger(pad_id);
-        props.padClick(pad_id);}}>{pad_id}</Pad>
+        props.padClick(pad_id);}}>{pad_id}</div>
     )
     
 

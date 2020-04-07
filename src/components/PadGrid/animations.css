@@ -1,0 +1,21 @@
+.clickedPad {
+    animation: spin 1s 1 linear;
+}
+
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@keyframes fade {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes blueToYellow {
+    0% {background-color: blue;}
+    100% {background-color: yellow;}
+}
+@keyframes blackToGray {
+    0%{background-color: black;}
+    100%{background-color: gray;}
+}
